@@ -32,7 +32,7 @@ if [ ! -f "$app_path/TagLookup" ]; then
   echo "Build did not produce the device executable."
   exit 1
 fi
-xcrun lipo -verify_arch arm64 "$app_path/TagLookup"
+xcrun lipo "$app_path/TagLookup" -verify_arch arm64
 
 mkdir -p "$project_dir/build/Payload"
 rm -rf "$project_dir/build/Payload/TagLookup.app"
