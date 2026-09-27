@@ -1,0 +1,28 @@
+name: Build iOS IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Show Apple toolchain
+        run: xcodebuild -version
+      - name: Test and build device IPA
+        run: bash scripts/build-ipa.sh
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: TagLookup-unsigned-IPA
+          path: build/TagLookup-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14

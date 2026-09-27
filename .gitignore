@@ -60,3 +60,13 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Tag Lookup build outputs
+.build/
+build/
+.DS_Store
+xcuserdata/
+*.xcuserstate
+*.mobileprovision
+*.p12
+*.p8

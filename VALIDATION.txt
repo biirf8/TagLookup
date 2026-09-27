@@ -1,0 +1,38 @@
+VALIDATION RECORD
+2026-09-27
+
+Passed in the local Linux workspace:
+- Parsed the generated Xcode project and checked all file references.
+- Confirmed all eight app/core Swift files are in the source build phase.
+- Checked the shared scheme targets the correct application.
+- Checked both configurations, bundle identifier, and iOS deployment target.
+- Checked app icon dimensions, opaque RGB encoding, and asset references.
+- Parsed the privacy manifest and workspace XML.
+- Checked the shell build script with bash -n.
+- Parsed and checked the GitHub Actions workflow structure.
+- Checked the fixed production host and two allowed Client endpoints.
+- Checked that no runtime source references secret-key headers or Server/Admin APIs.
+- Checked that inventory reads have no target-player parameter.
+- Checked that session persistence uses this device's non-synced Keychain.
+- Defined 12 Swift tests for requests, decoding, permissions, credential handling,
+  inventory grouping, hidden platform fields, and mismatched IDs.
+
+NOT RUN:
+- Swift compiler or Swift unit tests. No Swift toolchain is installed here.
+- Xcode device build or IPA creation. No Xcode/iOS SDK is installed here.
+- iOS simulator or iOS 27 installation/runtime test.
+- Live authenticated Gorilla Tag requests. No client session was supplied.
+
+The source checks do not prove the Swift build or live service will succeed.
+The included Mac build script runs the Swift tests, compiles the app, and only
+creates an unsigned IPA after successful tests and compilation. The IPA must
+then be signed for installation.
+
+Rerun portable checks:
+  python3 scripts/check-source.py
+
+Run Swift tests on a supported machine:
+  swift test
+
+Build an unsigned IPA on a Mac with Xcode:
+  bash scripts/build-ipa.sh
