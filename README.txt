@@ -3,9 +3,10 @@ Version 1.0.0
 
 DELIVERY STATUS
 This folder contains native SwiftUI source, an Xcode project, tests, and an
-automated IPA build workflow. No compiled IPA is included. The development
-workspace did not have Xcode or an iOS SDK. The Swift tests and iOS build have
-not run here. The workflow runs both on a Mac runner.
+automated IPA build workflow. The Mac workflow passed all 12 Swift tests and
+built a validated unsigned ARM64 iPhone IPA on 2026-09-27. Download the
+TagLookup-unsigned-IPA artifact from this successful run:
+https://github.com/biirf8/TagLookup/actions/runs/36320607783
 
 The project targets iOS 16.0 and later using standard native APIs. iOS 27
 device compatibility has not been tested. No JIT or jailbreak is required by

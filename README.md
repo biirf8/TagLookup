@@ -11,6 +11,11 @@ download the **TagLookup-unsigned-IPA** artifact and extract the ZIP. The includ
 The workflow also supports **Run workflow** for another build. It uses a GitHub
 Mac runner and does not need Apple or PlayFab credentials to compile the app.
 
+[Build verified on 2026-09-27](https://github.com/biirf8/TagLookup/actions/runs/36320607783):
+all 12 Swift tests passed, Xcode compiled the app, and the unsigned ARM64 IPA
+passed archive validation. Live authenticated requests and iOS 27 device testing
+remain untested.
+
 ## Features
 
 - Exact player ID lookup and conditional exact account-name lookup.

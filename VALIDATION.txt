@@ -17,16 +17,28 @@ Passed in the local Linux workspace:
 - Defined 12 Swift tests for requests, decoding, permissions, credential handling,
   inventory grouping, hidden platform fields, and mismatched IDs.
 
+Passed on the GitHub Mac runner:
+- All 12 Swift unit tests, zero failures.
+- Xcode device build using Xcode 26.6 and the iPhoneOS 26.5 SDK.
+- Packaging and validation of the unsigned ARM64 iPhone IPA.
+- Source commit: 4bf1235ae2f59acb180389ca4253e878d530d1d4
+- Run: https://github.com/biirf8/TagLookup/actions/runs/36320607783
+
+Verified after download:
+- Artifact ZIP digest matched the GitHub artifact metadata.
+- IPA archive passed scripts/verify-ipa.py.
+- App executable is ARM64 Mach-O for iPhoneOS.
+- Bundle identifier: com.brody.taglookup, version 1.0.0, minimum iOS 16.0.
+- IPA size: 305092 bytes.
+- IPA SHA256: c0917060d681fb92ed97ca32c7ec4e7f6cefd3574491af3f6b9d9656dd574adc
+
 NOT RUN:
-- Swift compiler or Swift unit tests. No Swift toolchain is installed here.
-- Xcode device build or IPA creation. No Xcode/iOS SDK is installed here.
 - iOS simulator or iOS 27 installation/runtime test.
 - Live authenticated Gorilla Tag requests. No client session was supplied.
 
-The source checks do not prove the Swift build or live service will succeed.
-The included Mac build script runs the Swift tests, compiles the app, and only
-creates an unsigned IPA after successful tests and compilation. The IPA must
-then be signed for installation.
+The successful build does not prove live service access or device compatibility.
+The IPA must be signed before installation. A current authorized client session
+is required to test live requests against Gorilla Tag's client API policies.
 
 Rerun portable checks:
   python3 scripts/check-source.py
